@@ -23,7 +23,6 @@ echo "<div class=\"CsQ\">";
 echo "<ul id=\"listasquadre\">";
 for ($j=0; $j<count($data); $j++){
 	echo "<li id=\"{$data[$j]["id_squadra"]}\" class=\"label\">{$data[$j]["nome"]}</li>\n";
-	echo $li;
 }
 echo "</ul>";
 echo "</div>";

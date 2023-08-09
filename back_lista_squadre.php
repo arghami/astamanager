@@ -26,7 +26,7 @@ $data = @$archivio->getListaSquadre();
 
 echo "<select id=\"listasquadreselect\" class=\"listaSq\" onchange=\"Backend.team(this.selectedIndex+1)\">";
 for ($j=0; $j<count($data); $j++){
-  echo "<option id=\"{$data[$j][id_squadra]}\">{$data[$j][nome]}</option>\n";
+  echo "<option id=\"{$data[$j]["id_squadra"]}\">{$data[$j]["nome"]}</option>\n";
 	echo $li;
 }
 echo "</select>";

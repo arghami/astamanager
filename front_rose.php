@@ -26,7 +26,7 @@ echo "<div class=\"scroll\">
       <div style=\"position:relative\">";  
 
 
-while (list($key, $value) = each($teams)){
+foreach ($teams as $key => $value) {
 	//prelevo tutte le informazioni per la squadra
 	$data = $archivio->rosa($key);
 

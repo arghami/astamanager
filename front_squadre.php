@@ -39,7 +39,7 @@ for ($j=0; $j<count($data); $j++){
       </tr>
 <?php
 
-while (list($key, $value) = each($teams)){
+foreach ($teams as $key => $value) {
 	//prelevo tutte le informazioni per la squadra
 	$data = $archivio->rosa($key);
 	$pars = $archivio->getFinanze($key);

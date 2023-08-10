@@ -19,7 +19,7 @@ $teams = $archivio->getActArchivio();
 
 
 //scorro per ogni nome squadra di serie A
-while (list($nomeTeam, $lista) = each($teams)){
+foreach ($teams as $nomeTeam => $lista) {
 	echo "<span class=\"rosabox\"><div class=\"introsa\">$nomeTeam</div>
 	<table class=\"squadra\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">";
 	for ($i=0; $i<count($lista); $i++){

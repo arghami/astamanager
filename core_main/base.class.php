@@ -40,13 +40,13 @@ class Base{
 			return false;
 		}
 		include (dirname(__FILE__)."/parametri.php");
+		$connessione = mysqli_connect($DB_HOST, $DB_USER, $DB_PASSWORD);
+		mysqli_query($connessione, "CREATE DATABASE IF NOT EXISTS ".$DB_NAME);
 		$connessione = mysqli_connect($DB_HOST, $DB_USER, $DB_PASSWORD, $DB_NAME);
 
 		if ($connessione==false) {
 			return false;
 		}
-
-		mysqli_query($connessione, "CREATE DATABASE astamanager");
 	}
 
 	/**

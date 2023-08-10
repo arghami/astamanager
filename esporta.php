@@ -19,7 +19,7 @@ $files = $archivio->esporta();
 
 //creo i file delle singole squadre
 $filelist = array();
-while (list($nomefile, $contenuto) = each($files)){
+foreach ($files as $nomefile => $contenuto) {
 	$filelist[] = $nomefile.".txt";
 	$f = fopen( $nomefile.".txt", 'w+');
 	fwrite($f, $contenuto);

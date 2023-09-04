@@ -164,7 +164,7 @@ else if (document.attachEvent)
   {
     var targetWindow = this;
 
-    for (id in targetWindow._allListeners)
+    for (var id in targetWindow._allListeners)
     {
       var listenerRecord = targetWindow._allListeners[id];
       listenerRecord.target.detachEvent(
@@ -231,7 +231,7 @@ Core.getChildsByClass = function(node,theClass)
     matchedArray = matchedArray.concat(Core.getChildsByClass(elementArray[i],theClass));
   }
 
-  for (var i = 0; i < elementArray.length; i++)
+  for (i = 0; i < elementArray.length; i++)
   {
     if (pattern.test(elementArray[i].className))
     {

@@ -109,7 +109,7 @@ font-size:80%;
   padding: 0.5% 1%;
 }
 
-/*il div dell'attuale in asta ha i caratteri più grandi*/
+/*il div dell'attuale in asta ha i caratteri piÃ¹ grandi*/
 #now .datiplayer{
   font-size:130%;
   /*text-decoration: blink;*/
@@ -153,7 +153,7 @@ font-size:80%;
 }
 
 
-/*tabella degli acquisti più costosi*/
+/*tabella degli acquisti piÃ¹ costosi*/
 #topacq { border:1px dashed #75758A;
   padding:0.1em;
   /*margin:0.5% auto;*/
@@ -414,7 +414,7 @@ max-height: 50px;
 /*overflow: auto;*/
 }
 
-/*tabella degli acquisti più costosi*/
+/*tabella degli acquisti piÃ¹ costosi*/
 table.tot_acq {
   /*border:1px dashed #75758A;*/
   padding:0.1em;

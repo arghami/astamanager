@@ -12,7 +12,7 @@ var Frontend = {
 
 	},
 
-	//controlla se è necessario effettuare un refresh della parte delle rose
+	//controlla se Ã¨ necessario effettuare un refresh della parte delle rose
 	checkUpdate: function(){
 		var requester = AjaxRequester.getRequester();
 		if (requester != null){

@@ -1,4 +1,4 @@
-var lastOp = 0;
+var lastOp = -1;
 
 var Frontend = {
 	init: function() {

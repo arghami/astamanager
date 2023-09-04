@@ -28,7 +28,9 @@ class Archivio extends Base{
 		if ($ruolo!="") {
 			$queryRicerca .= " AND ruolo='$ruolo'";
 		}
-
+		//ordina la ricerca in ordine alfabetico crescente del nome giocatore
+		$queryRicerca .= " ORDER BY nome ASC";
+		
 		$risultati = parent::doQuery($queryRicerca);
 
 		//organizzo i risultati della ricerca in un array bidimensionale
@@ -90,7 +92,7 @@ class Archivio extends Base{
 	}
 
 	/**
-	 * Vede chi è l'ultimo giocatore chiamato all'asta
+	 * Vede chi Ã¨ l'ultimo giocatore chiamato all'asta
 	 */
 	function getAsta(){
 
@@ -268,8 +270,7 @@ class Archivio extends Base{
 			$res = parent::doQuery($giocs);
 			$teamDescr = "";
 			while($row = mysqli_fetch_array($res)){
-				$teamDescr .= $row[0]."\t".$row[1]."\t".$row[2]."\t".$row[3]."
-";
+				$teamDescr .= $row[0]."\t".$row[1]."\t".$row[2]."\t".$row[3]."\r\n";
 			}
 			$output[$sq[1]] = $teamDescr;
 		}
@@ -412,8 +413,8 @@ class Archivio extends Base{
 		//prelevo il numero totale di giocatori da acquistare
 		$totRosa = $parametri["portieri"] + $parametri["difensori"] + $parametri["centrocampisti"] + $parametri["attaccanti"];
 
-		//Calcolo il massimo spendibile per un solo giocatore. La formula è:
-		// MAXBET = BUDGET - (N°GIOC_DA_ACQUISTARE -1) + (PARZEROACQUISTABILI - PARZEROACQUISTATI)
+		//Calcolo il massimo spendibile per un solo giocatore. La formula Ã¨:
+		// MAXBET = BUDGET - (NÂ°GIOC_DA_ACQUISTARE -1) + (PARZEROACQUISTABILI - PARZEROACQUISTATI)
 		$crediti["spendibili"] = $budget-($totRosa-$totAcq-1) + ($parametri["costozero"] - $cred0);
 
 		while($row = mysqli_fetch_array($res)){
@@ -422,13 +423,13 @@ class Archivio extends Base{
 				$crediti["spesi"] = $row[0];
 				$crediti["residui"] = $budget-$row[0];
 
-				//Aggiorno il massimo spendibile per un solo giocatore. La formula è:
-				// MAXBET = BUDGETRESIDUO - (N°GIOC_DA_ACQUISTARE -1) + (PARZEROACQUISTABILI - PARZEROACQUISTATI)
+				//Aggiorno il massimo spendibile per un solo giocatore. La formula Ã¨:
+				// MAXBET = BUDGETRESIDUO - (NÂ°GIOC_DA_ACQUISTARE -1) + (PARZEROACQUISTABILI - PARZEROACQUISTATI)
 				$crediti["spendibili"] = $crediti["residui"]-($totRosa-$totAcq-1) + ($parametri["costozero"] - $cred0);
 			}
 		}
 
-		//se totRosa è 0 (rose libere), maxbet coincide con il budget residuo
+		//se totRosa Ã¨ 0 (rose libere), maxbet coincide con il budget residuo
 		if ($totRosa==0) {
 			$crediti["spendibili"] = $crediti["residui"];
 		}

@@ -1,4 +1,4 @@
-var lastOp = 0;
+var lastOp = -1;
 
 var Frontend = {
 	init: function() {
@@ -12,7 +12,7 @@ var Frontend = {
 
 	},
 
-	//controlla se è necessario effettuare un refresh della parte delle rose
+	//controlla se Ã¨ necessario effettuare un refresh della parte delle rose
 	checkUpdate: function(){
 		var requester = AjaxRequester.getRequester();
 		if (requester != null){
@@ -205,31 +205,8 @@ var Frontend = {
 						var sx = document.getElementById('left');
 						var ce = document.getElementById('center');
 						var dx = document.getElementById('right');
-
-						sx.style.height = (0.7*ce.offsetHeight) + "px";
-						dx.style.height = (0.3*ce.offsetHeight)  + "px";
-
-					//var SquA = document.getElementById('newsticker-demo');
-					//SquA.style.height = (0.95*sx.offsetHeight) + "px";
-					//alert(SquA.offsetHeight);
-						
-						//var co = document.getElementById('container');
-						
-						//co.style.position = "absolute";
-						//co.style.top = "50%";
-						//co.style.left = "50%";
-						//co.style.marginLeft = "-" + (co.offsetWidth/2) + "px";
-						//co.style.marginTop = "-" + (co.offsetHeight/2) + "px";
-						//co.style.marginLeft = "-" + (co.offsetWidth/2) + "px";
-						
-						//co.style.marginRight = "0px";
-						//co.style.marginBottom = "0px";
-						//width: 800px;
-						//height: 582px;
-						//position:absolute;top:50%;left:50%;
-						//margin:-291px 0 0 -400px;
-						
-						
+						sx.style.height = ce.offsetHeight + "px";
+						dx.style.height = ce.offsetHeight + "px";
 						
 					}else{
 						alert ("Errore - (" + requester.status + ")");

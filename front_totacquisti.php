@@ -20,7 +20,12 @@ echo  "<table id=\"AcqTot\" class='tot_acq' border=\"0\" cellspacing=\"0\" cellp
 		      <tr class=\"intest_acq\">
 		        <td colspan=\"4\" >Giocatori Acquistati</td>
 		      </tr>";
-for ($i=0; $i<count($cronAcqu); $i++){
+// controllo se sono stati fatti acquisti
+if ($cronAcqu === null) {
+    // Il valore restituito è nullo, non sono stati fatti acquisti
+	echo  "</table>";
+} else {
+	for ($i=0; $i<count($cronAcqu); $i++){
 
 	//coloro le righe alterne
 			if ($cnt & 1) {
@@ -44,5 +49,6 @@ for ($i=0; $i<count($cronAcqu); $i++){
 	$cnt++;
 }
 echo "</table>";
+}
 ?>
 

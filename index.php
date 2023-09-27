@@ -35,7 +35,7 @@
 		 </tr>
 		 <tr>
 		 <form id="ricercaform">
-		 <td class='tdricerca' colspan="7"> <input id="giocatore" name="giocatore" type="text" class="search" onfocus="delDefaultValue('giocatore')" onblur="checkEmptyValue('giocatore')" /></td>
+		 <td class='tdricerca' colspan="7"> <input id="giocatore" name="giocatore" type="search" class="search" onfocus="delDefaultValue('giocatore')" onblur="checkEmptyValue('giocatore')" /></td>
 		 <td class='tdruolo' colspan="1"><select id="ruolo_ricerca" class='num_config' name="ruolo_ricerca">
 		  		<option value="">Tutti</option>
 		  		<option value="Portiere">P</option>

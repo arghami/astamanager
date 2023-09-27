@@ -17,18 +17,24 @@ $top = $archivio->getTopPagati();
 
 echo  "<table class=\"top3\" id=\"topacq\" border=\"0\" cellspacing=\"0\" cellpadding=\"2\" summary=\"\">
        <tr><td rowspan=\"4\" class=\"riassunto_intest\">I TOP</td>";
-for ($i=0; $i<count($top); $i++){
-  $num = $i + 1;
-	echo "<td class=\"num\">{$num}.</td>
-	      <td class=\"got\">".tronca($top[$i]['nome'],20)."</td>
-					<td class=\"got\">(".tronca($top[$i]['fantasquadra'],15).")</td>
-	        <td class=\"cost\">{$top[$i]['crediti']}</td>";
-		 if ($i==count($top)){
-	      echo "</tr>";
-				}else{
-				echo "</tr><tr>";
-				}			 
-}			 
+// controllo se sono stati fatti acquisti
+if ($top === null) {
+    // Il valore restituito è nullo, non sono stati fatti acquisti
+
+} else {
+	for ($i=0; $i<count($top); $i++){
+	  $num = $i + 1;
+		echo "<td class=\"num\">{$num}.</td>
+			  <td class=\"got\">".tronca($top[$i]['nome'],20)."</td>
+						<td class=\"got\">(".tronca($top[$i]['fantasquadra'],15).")</td>
+				<td class=\"cost\">{$top[$i]['crediti']}</td>";
+			 if ($i==count($top)){
+			  echo "</tr>";
+					}else{
+					echo "</tr><tr>";
+					}			 
+	}
+}			 		 
 echo "</table>";			 
 
 ?>

@@ -21,18 +21,21 @@ body {
 
 
 #prec {
-clear: both;
 float: left;
 width:50%;
 max-width:50%;
 font-size:80%;
 margin-top: 5px;
 margin-bottom: 5px;
+/*margin: 5px;*/
 }
 
 #now {
-  width: 100%;
+  /*border:5px solid #ACACB9;*/
+  width: 80%;
   float: left;
+  /*margin: 0.3%;
+  max-width:30%;*/
 }
 
 
@@ -109,7 +112,7 @@ font-size:80%;
   padding: 0.5% 1%;
 }
 
-/*il div dell'attuale in asta ha i caratteri più grandi*/
+/*il div dell'attuale in asta ha i caratteri piÃ¹ grandi*/
 #now .datiplayer{
   font-size:130%;
   /*text-decoration: blink;*/
@@ -153,7 +156,7 @@ font-size:80%;
 }
 
 
-/*tabella degli acquisti più costosi*/
+/*tabella degli acquisti piÃ¹ costosi*/
 #topacq { border:1px dashed #75758A;
   padding:0.1em;
   /*margin:0.5% auto;*/
@@ -328,32 +331,37 @@ padding:2px 5px;
 }
 
 #left{
-	float: right;
-   width: 25%;
-	max-width: 25%;
+   /*clear: both;*/
+	float: left;
+   width: 18%;
+	max-width: 18%;
+	/*height: 520px;*/
 	padding: 0.15%;
+	margin-right:0.6%;
 	overflow: hidden;
 	border:1px dotted #75758A;
 	position: relative;
 	height: auto;
+	/*display: none;*/
 }
 
 #center{
    float: left;
-   width: 74%;
-	max-width: 74%;
+   width: 60.5%;
+	max-width: 60.5%;
    padding: 0.15%;
 	height:100%;
 }
 
 #right{
    float: right;
-	width: 25%;
-	max-width: 25%;
+	width: 19%;
+	max-width: 19%;
 	height: 400px;
 	padding: 0.15%;
 	overflow: hidden;
 	border:1px dotted #75758A;
+   /*display: none;*/
 }
 
 
@@ -387,14 +395,14 @@ table.ora td.intest_Now {
 table.ora td.nome_Now{
 text-align: left;
 font-size: 20px;
-color: #75758A; font-weight: bold;
+color: #75758A; font-weight: bold;  
 padding:0.6em 0em 0.6em 0.6em;
 
 }
 
 table.ora td.squa_Now{
  text-align: left;
-background-color:#A3A3B1;
+background-color:#A3A3B1;	 
 color: #F1F1F3;
 font-weight: bold;
 padding: 0em 0em 0em 1em;
@@ -414,8 +422,8 @@ max-height: 50px;
 /*overflow: auto;*/
 }
 
-/*tabella degli acquisti più costosi*/
-table.tot_acq {
+/*tabella degli acquisti piÃ¹ costosi*/
+table.tot_acq { 
   /*border:1px dashed #75758A;*/
   padding:0.1em;
   width:100%;
@@ -435,7 +443,7 @@ table.tot_acq tr.intest_acq{
 
 
 table.tot_acq td.num{
-color:#75758A;
+color:#75758A; 
 	font-weight:bold;
 	text-align: center;
 	font-size: 80%;
@@ -459,7 +467,7 @@ table.tot_acq td.nomeA {
 	font-size:80%;
 	color:#000066;
 	border-top: 1px dotted #75758A;
-
+	
 }
 
 .pari {background-color: #fff;cursor: pointer;}
@@ -497,7 +505,7 @@ background-repeat: no-repeat;
 
 
 /*tabella Rose*/
-table.rose {
+table.rose { 
   /*border:1px dashed #75758A;*/
   /*padding: 0.1em 0em 0.5em 0em;*/
   width:100%;
@@ -521,7 +529,7 @@ table.rose td.costR {
 }
 
 table.rose td.ruoloR {
-   color:#75758A;
+   color:#75758A; 
 	font-weight:bold;
 	text-align: center;
 	font-size: 80%;
@@ -543,18 +551,6 @@ table.rose td.ruoloR {
 	margin-bottom: 5px;
 }
 
-.newsticker-jcarousellite ul li{
-list-style:none;
-display:block;
-padding-bottom:1px;
-margin-bottom:5px;
-
-}
-
-#newsticker-demo {
-position:relative;
-}
-
-
-
+.newsticker-jcarousellite ul li{ list-style:none; display:block; padding-bottom:1px; margin-bottom:5px; }
+#newsticker-demo { position:relative; }
 

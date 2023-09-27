@@ -17,7 +17,7 @@ $archivio = new Archivio();
 $data = $archivio->rosa($_GET['id_squadra']);
 $pars = $archivio->getFinanze($_GET['id_squadra']);
 
-//la rosa restituita dalla classe php mi d‡ solo i giocatori presenti. La devo "fillare"
+//la rosa restituita dalla classe php mi d√† solo i giocatori presenti. La devo "fillare"
 $newData = array();
 //fillo i portieri
 copyRuolo ($data, $newData, 'Portiere', $pars["portieri"]);
@@ -70,7 +70,11 @@ $header = array('R','Giocatore','Anni','$','G','P');
 			}
 			echo "<td class=\"$roleclass\" nowrap=\"nowrap\">".$data[$j][$i]."</td>\n";
 		}
-		echo "<td class=\"del\" id=\"{$_GET['id_squadra']}_{$data[$j][0]}\">&nbsp;</td>";
+		if ($data[$j][0]==null){
+				echo "<td>&nbsp;</td>";
+			}else{
+				echo "<td class=\"del\" id=\"{$_GET['id_squadra']}_{$data[$j][0]}\">&nbsp;</td>";
+			}
 		echo "</tr>\n";
 	}
 	echo "</table>\n";

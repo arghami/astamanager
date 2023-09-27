@@ -466,15 +466,17 @@ class Archivio extends Base{
 			$teams[] = $row[0];
 		}
 
-		$query = "SELECT g.nome, g.ruolo, g.squadra, gs.crediti, g.cod_giocatore from
+		$query = "SELECT g.nome, g.ruolo, g.squadra, gs.crediti, g.cod_giocatore, s.nome from
 					giocatori g left outer join giocatori_squadra gs
 					on g.cod_giocatore = gs.cod_giocatore
+					left outer join squadre s
+					on gs.id_squadra = s.id_squadra
 					ORDER BY 3, 2 DESC, 1";
 
 		$res = parent::doQuery($query);
 		$teams=array();
 		while($row = mysqli_fetch_array($res)){
-			$teams[$row[2]][] = array($row[0],$row[1], $row[3], $row[4]);
+			$teams[$row[2]][] = array($row[0],$row[1], $row[3], $row[4], $row[5]);
 		}
 
 		return $teams;

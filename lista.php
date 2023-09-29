@@ -25,7 +25,7 @@ $teams = $archivio->getActArchivio();
 echo "<span class=\"rosabox\" style=\"width:95%\">
 	<table class=\"squadra\" id=\"sq\" style=\"width:100%;font-size:2em\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">";
 //scorro per ogni nome squadra di serie A
-while (list($nomeTeam, $lista) = each($teams)){
+foreach ($teams as $nomeTeam => $lista){
 	for ($i=0; $i<count($lista); $i++){
 
     $skip = true;
@@ -62,7 +62,7 @@ while (list($nomeTeam, $lista) = each($teams)){
 				break;
 		}
 
-		//se il giocatore è stato comprato, gli aggiungo la classe barrato
+		//se il giocatore Ã¨ stato comprato, gli aggiungo la classe barrato
 		$barrato = "";
 		if ($lista[$i][2]!="") {
 			$barrato = "barrato";

@@ -14,7 +14,7 @@ require_once("core_archivio/archivio.class.php");
 $base = new Base();
 $base->createDB();
 
-//dopo aver creato il db, devo "rinfrescare" la classe, perchË adesso si collegher‡ anche al db giusto, mentre prima non lo faceva
+//dopo aver creato il db, devo "rinfrescare" la classe, perch√® adesso si collegher√† anche al db giusto, mentre prima non lo faceva
 $base = new Base();
 
 /*
@@ -119,7 +119,7 @@ else {
 		$row = str_replace(array("\n","\r"),array("",""), $row);
 		if (count(explode("\t",$row))==6) {
 			list (,$cod_giocatore, $valore, $ruolo, $squadra, $nome) = explode("\t",$row);
-			//le righe in cui il secondo campo Ë vuoto o Ë "Cod" non sono valide
+			//le righe in cui il secondo campo √® vuoto o √® "Cod" non sono valide
 			if ($cod_giocatore!="" && $cod_giocatore!="Cod") {
 				//gestione dei giocatori con codice zero: genero un codice progressivo a 8 cifre
 				//spero che in FCM non mettano mai codici giocatori a 8 cifre ;)
@@ -150,6 +150,7 @@ else {
 	$idteam = 0;
 	$arch = new Archivio();
 	for ($i=0; $i<count($file); $i++){
+		$file[$i] = mb_convert_encoding($file[$i], "UTF-8", "ISO-8859-1");
 		$cols = explode("\t",$file[$i]);
 		if ($cols[0]=="" && $cols[1]=="" && $cols[2]!="") {
 			//in questo caso ho un nome team

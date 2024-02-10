@@ -14,7 +14,7 @@ require_once("core_archivio/archivio.class.php");
 $base = new Base();
 $base->createDB();
 
-//dopo aver creato il db, devo "rinfrescare" la classe, perchè adesso si collegherà anche al db giusto, mentre prima non lo faceva
+//dopo aver creato il db, devo "rinfrescare" la classe, perchÃ¨ adesso si collegherÃ  anche al db giusto, mentre prima non lo faceva
 $base = new Base();
 
 /*
@@ -119,7 +119,7 @@ else {
 		$row = str_replace(array("\n","\r"),array("",""), $row);
 		if (count(explode("\t",$row))==6) {
 			list (,$cod_giocatore, $valore, $ruolo, $squadra, $nome) = explode("\t",$row);
-			//le righe in cui il secondo campo è vuoto o è "Cod" non sono valide
+			//le righe in cui il secondo campo Ã¨ vuoto o Ã¨ "Cod" non sono valide
 			if ($cod_giocatore!="" && $cod_giocatore!="Cod") {
 				//gestione dei giocatori con codice zero: genero un codice progressivo a 8 cifre
 				//spero che in FCM non mettano mai codici giocatori a 8 cifre ;)
@@ -182,17 +182,24 @@ else {
 				$arch->assegnaGiocatore($idteam, $cod, intval($cols[5]), intval($cols[4]), 0, 0);
 			}
 
-			//fatto questo, devo andare a scorrermi il bilancio per trovare una voce "fondo cassa"
+			//fatto questo, devo andare a scorrermi il bilancio per trovare una voce "fondo cassa" e la voce "Inserimento in lista infortunati"
 			$cols = explode("\t",$file[++$i]);
+			$cassa = 0;
 			while ($cols[1]!=""){
 				$cols = explode("\t",$file[++$i]);
 				if ($cols[1]=="") {
 					break;
 				}
-				else if (trim(strtolower($cols[1]))=="fondo cassa") {
-					$arch->setFondoCassa($idteam, $cols[5]);
+				else {
+					if (trim(strtolower($cols[1]))=="fondo cassa") {
+						$cassa += intval($cols[5]);
+					}
+					if(preg_match("/inserimento in lista infortunati/i",trim(strtolower($cols[1])))){
+						$cassa -= intval($cols[6]);
+					}
 				}
 			}
+			$arch->setFondoCassa($idteam, $cassa);
 		}
 	}
 }
